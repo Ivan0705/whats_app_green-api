@@ -5,7 +5,7 @@ import error from './Error.module.css'
 export const IdError = () => {
     return (
         <div className={error.error}>
-            Введите  id
+            Введите id
         </div>
     )
 };

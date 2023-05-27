@@ -4,7 +4,7 @@ import {Header} from "../Header/Header";
 import {LeftSide} from "../Sides/LeftSide";
 import {RightSide} from "../Sides/RightSide";
 import page from './Page.module.css';
-import {getMessageAPI} from "../../api/api";
+import {getMessageAPI, sendMessageAPI} from "../../api/api";
 
 export const Page: FC<PageProps> = ({idInstance, apiTokenInstance}) => {
     const [contact, setContact] = useState<String | any>('');
@@ -26,10 +26,10 @@ export const Page: FC<PageProps> = ({idInstance, apiTokenInstance}) => {
     useEffect(() => {
         setTimeout(() => {
             if (idInstance !== '' && apiTokenInstance !== '') {
-                getMessageAPI(idInstance, apiTokenInstance, contactId)
+                getMessageAPI(idInstance, apiTokenInstance)
             }
         }, 300)
-    }, [contactId]);
+    }, []);
 
     const handleChange1 = (event: ChangeEvent<HTMLInputElement>) => {
         setContact(event.target.value);
@@ -75,8 +75,8 @@ export const Page: FC<PageProps> = ({idInstance, apiTokenInstance}) => {
             setListMessages([...listMessages, newMessage]);
             console.log('chatId: ', chatId);
             console.log('message: ', message);
-            /* // @ts-ignore
-             sendMessageAPI(idInstance, apiTokenInstance, chatId, message);*/
+            // @ts-ignore
+            sendMessageAPI(idInstance, apiTokenInstance, chatId, message);
             setMessage('');
         }
     };
