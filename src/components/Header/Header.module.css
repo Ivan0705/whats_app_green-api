@@ -1,0 +1,38 @@
+.header {
+    display: flex;
+}
+
+.header_contacts {
+    width: 29.5%;
+    background-color: #f1f2f6;
+    display: flex;
+    text-align: center;
+    height: 60px;
+}
+
+.profile {
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    padding-top: 7px;
+}
+
+.header_chat {
+    width: 70.5%;
+    background-color: #f1f2f6;
+    text-align: center;
+    margin-left: 1px;
+    display: flex;
+}
+
+.header_chat_img {
+    margin-left: 5px;
+    text-align: left;
+    padding-left: 11px;
+    width: 50px;
+}
+
+.header_chat_name {
+    padding-top: 17px;
+}
+

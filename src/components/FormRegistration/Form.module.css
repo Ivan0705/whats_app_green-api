@@ -1,0 +1,32 @@
+.my_form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+    height: 250px;
+    border: gray 1px solid;
+    border-radius: 9px;
+    background: #dcf8c7;
+
+}
+
+.input_form {
+    margin-top: 10px;
+    width: 450px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+}
+
+.button_form {
+    margin-right: 360px;
+    margin-top: 10px;
+    background-color: #61dafb;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    height: 45px;
+    text-align: center;
+
+}

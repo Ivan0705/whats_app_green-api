@@ -1,0 +1,21 @@
+.my_message {
+    display: inline-block;
+    background: #dcf8c7;
+    border-radius: 5px;
+    margin-left: 500px;
+    text-align: left;
+    margin-top: 50px;
+    padding: 5px
+}
+
+.message_companion {
+    display: inline-block;
+    background: white;
+    border-radius: 5px;
+    text-align: left;
+    margin-right: 750px;
+    margin-top: 50px;
+    min-width: 100px;
+    max-width: 200px;
+    padding: 5px
+}
