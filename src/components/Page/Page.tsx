@@ -17,8 +17,6 @@ export const Page: FC<PageProps> = ({idInstance, apiTokenInstance}) => {
 
     const [message, setMessage] = useState<String | any>("");
 
-    const [receiptId, setReceiptId] = useState<number>(0);
-
     const [listMessages, setListMessages] = useState<Array<Message>>([]);
 
     const [userName, setUserName] = useState<String>('');
@@ -62,14 +60,11 @@ export const Page: FC<PageProps> = ({idInstance, apiTokenInstance}) => {
 
     const sendMessage = (e: any) => {
         setUserName(listContacts[contactId].contact);
-        setReceiptId(listMessages.length);
-        setReceiptId((prev) => prev + 1);
 
         const newMessage: any = {
             userNameId: listContacts[contactId].contactId,
             message: message,
             userName: userName,
-            receiptId: receiptId
         };
         if (e.key === 'Enter') {
             setListMessages([...listMessages, newMessage]);
@@ -82,7 +77,7 @@ export const Page: FC<PageProps> = ({idInstance, apiTokenInstance}) => {
     };
 
     const openChat = (id: number) => {
-        return setContactId(listContacts[id].contactId)
+        return setContactId(listContacts[id].contactId);
     };
 
     return (

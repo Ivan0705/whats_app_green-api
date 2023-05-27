@@ -22,23 +22,23 @@ export const sendMessageAPI = async (idInstance: string, apiTokenInstance: strin
 };
 
 export const getMessageAPI = async (idInstance: string, apiTokenInstance: string) => {
-    let response1 = await fetch(`https://api.green-api.com/waInstance${idInstance}/receiveNotification/${apiTokenInstance}`);
-    if (response1.ok) {
-        // @ts-ignore
-        console.log("GET: ", response1.json());
-
-        const receiptId = 1; //или любое число receiptId при получении запроса GET
-
-        let response2 = await fetch(`https://api.green-api.com/waInstance${idInstance}/deleteNotification/${apiTokenInstance}/${receiptId}`, {
-            method: "DELETE"
+    return await fetch(`https://api.green-api.com/waInstance${idInstance}/receiveNotification/${apiTokenInstance}`)
+        .then((response) => {
+            return response.json();
+        }).then(async (data) => {
+            console.log('receiptId:', data.receiptId);
+            if (data.receiptId === null) {
+                console.log('NULL')
+            } else {
+                await fetch(`https://api.green-api.com/waInstance${idInstance}/deleteNotification/${apiTokenInstance}/${data.receiptId}`, {
+                    method: "DELETE"
+                }).then(response2 => {
+                    if (response2.ok) {
+                        console.log("DELETED");
+                    } else {
+                        console.log('ERROR: ', response2.json());
+                    }
+                });
+            }
         });
-        if (response2.ok) {
-            console.log("DELETED");
-        } else {
-            console.log('ERROR: ', response2.json());
-        }
-    } else {
-        console.log("ERROR")
-    }
-    return response1;
 };

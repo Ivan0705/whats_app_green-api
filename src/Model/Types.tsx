@@ -2,7 +2,6 @@ export  type Message = {
     userNameId: String | any,
     message: String | any,
     userName: String | any,
-    receiptId: number | any
 }
 
 export type Contact = {
