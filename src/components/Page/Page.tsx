@@ -1,23 +1,27 @@
 import React, {ChangeEvent, FC, useEffect, useState} from "react";
-import {Contact, Message, PageProps} from "../../Model/Types";
+import {PageProps} from "../../Model/Types";
 import {Header} from "../Header/Header";
 import {LeftSide} from "../Sides/LeftSide";
 import {RightSide} from "../Sides/RightSide";
 import page from './Page.module.css';
+import {useDispatch, useSelector} from "react-redux";
+import {addContactAction, sendMessageAction} from "../../store/actions/actions";
 import {getMessageAPI, sendMessageAPI} from "../../api/api";
 
 export const Page: FC<PageProps> = ({idInstance, apiTokenInstance}) => {
+    const dispatch = useDispatch();
+
+    const listContacts = useSelector((state: any) => state.contacts.contacts);
+
+    const listMessages = useSelector((state: any) => state.messages.messages);
+
     const [contact, setContact] = useState<String | any>('');
 
     const [contactId, setContactId] = useState<String | any>('');
 
     const [chatId, setChatId] = useState<String>('');
 
-    const [listContacts, setListContacts] = useState<Array<Contact>>([]);
-
     const [message, setMessage] = useState<String | any>("");
-
-    const [listMessages, setListMessages] = useState<Array<Message>>([]);
 
     const [userName, setUserName] = useState<String>('');
 
@@ -46,7 +50,7 @@ export const Page: FC<PageProps> = ({idInstance, apiTokenInstance}) => {
                 setContact("");
             } else {
                 if (isUniqueContact(listContacts, contact)) {
-                    setListContacts([...listContacts, newContact]);
+                    dispatch(addContactAction(newContact));
                     setChatId(contact + '@c.us');
                     setContactId(0);
                     setContact("");
@@ -67,7 +71,7 @@ export const Page: FC<PageProps> = ({idInstance, apiTokenInstance}) => {
             userName: userName,
         };
         if (e.key === 'Enter') {
-            setListMessages([...listMessages, newMessage]);
+            dispatch(sendMessageAction(newMessage));
             console.log('chatId: ', chatId);
             console.log('message: ', message);
             // @ts-ignore

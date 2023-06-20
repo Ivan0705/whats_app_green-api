@@ -2,11 +2,14 @@ import * as React from "react";
 import {ChangeEvent, FC, useState} from "react";
 import {FormRegistration} from "./FormRegistration/FormRegistration";
 import {Page} from "./Page/Page";
+import {useDispatch} from "react-redux";
+import {registrationAction} from "../store/actions/actions";
 
 export const MyPage: FC = () => {
+    const dispatch = useDispatch();
+
     const [idInstance, setIdInstance] = useState<String | any>('');
     const [apiTokenInstance, setApiTokenInstance] = useState<String | any>('');
-    const [dataForm, setDataForm] = useState<Array<any>>([]);
     const [show, setShow] = useState<Boolean>(true);
     const [error, setError] = useState<Boolean>(false);
 
@@ -20,9 +23,8 @@ export const MyPage: FC = () => {
 
     const add = (): void => {
         const newDataForm = {idInstance: idInstance, apiTokenInstance: apiTokenInstance};
-
         if (idInstance !== '' && apiTokenInstance !== '') {
-            setDataForm([...dataForm, newDataForm]);
+            dispatch(registrationAction(newDataForm));
             setShow(false);
         } else {
             setError(true);

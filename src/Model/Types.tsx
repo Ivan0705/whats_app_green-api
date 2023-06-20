@@ -1,3 +1,5 @@
+import {addContactInterface, registrationInterface, sendMessageInterface} from "./Interfaces/collectionInterfaces";
+
 export  type Message = {
     userNameId: String | any,
     message: String | any,
@@ -55,3 +57,13 @@ export type MessageProps = {
     contactId: any
 }
 
+export type DataForm = {
+    idInstance: string,
+    apiTokenInstance: string
+}
+
+export type ContactAction = addContactInterface
+
+export type MessageAction = sendMessageInterface
+
+export type FormAction = registrationInterface
