@@ -6,7 +6,7 @@ import {RightSide} from "../Sides/RightSide/RightSide";
 import page from './Page.module.css';
 import {useDispatch, useSelector} from "react-redux";
 import {addContactAction, sendMessageAction} from "../../store/actions/actions";
-//import {getMessageAPI, sendMessageAPI} from "../../api/api";
+import {getMessageAPI, sendMessageAPI} from "../../api/api";
 
 export const Page: FC<PageProps> = ({idInstance, apiTokenInstance}) => {
     const dispatch = useDispatch();
@@ -26,11 +26,11 @@ export const Page: FC<PageProps> = ({idInstance, apiTokenInstance}) => {
     const [userName, setUserName] = useState<String>('');
 
     useEffect(() => {
-        /*  setTimeout(() => {
-              if (idInstance !== '' && apiTokenInstance !== '') {
-                  getMessageAPI(idInstance, apiTokenInstance)
-              }
-          }, 300)*/
+        setTimeout(() => {
+            if (idInstance !== '' && apiTokenInstance !== '') {
+                getMessageAPI(idInstance, apiTokenInstance)
+            }
+        }, 300)
     }, []);
 
     const handleChange1 = (event: ChangeEvent<HTMLInputElement>) => {
@@ -38,7 +38,7 @@ export const Page: FC<PageProps> = ({idInstance, apiTokenInstance}) => {
     };
     const isUniqueContact = (listContacts: any, contact: any) => {
         return !listContacts.find(function (c: any) {
-            return c.contact == contact;
+            return c.contact === contact;
         });
     };
     const addContact = (event: any): void => {
@@ -75,7 +75,7 @@ export const Page: FC<PageProps> = ({idInstance, apiTokenInstance}) => {
             console.log('chatId: ', chatId);
             console.log('message: ', message);
             // @ts-ignore
-            //   sendMessageAPI(idInstance, apiTokenInstance, chatId, message);
+            sendMessageAPI(idInstance, apiTokenInstance, chatId, message);
             setMessage('');
         }
     };
