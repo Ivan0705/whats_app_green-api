@@ -6,13 +6,13 @@ import {ContactProps} from "../../Model/Types";
 export const Contact: FC<ContactProps> = ({c, ind, openChat}) => {
     return (
         <div key={ind} className={contact.contact}>
-            <div><img className={contact.profile}
+            <div><img className={contact.contact_profile}
                       src={profile}
                       alt={'profile'}/>
             </div>
-            <div className={contact.profile_info}>
-                <div className={contact.profile_header}>
-                    <div className={contact.profile_name}
+            <div className={contact.contact_profile_info}>
+                <div className={contact.contact_profile_header}>
+                    <div className={contact.contact_profile_name}
                          onClick={() => openChat(c.contactId)}>{c.contact}
                     </div>
                 </div>

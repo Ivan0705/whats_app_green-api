@@ -9,15 +9,14 @@ export const Header: FC<ContactsProps> = ({listContacts, contactId}) => {
         <div className={header.header}>
             <div className={header.header_contacts}>
                 <div className={header.header_img}>
-                    <img className={header.profile}
+                    <img className={header.header_profile}
                          src={profile}
                          alt={'profile'}/>
-
                 </div>
             </div>
             <div className={header.header_chat}>
                 <div className={header.header_chat_img}>
-                    {listContacts.length === 0 ? '' : <img className={header.profile}
+                    {listContacts.length === 0 ? '' : <img className={header.header_profile}
                                                            src={profile}
                                                            alt={'profile'}/>}
                 </div>

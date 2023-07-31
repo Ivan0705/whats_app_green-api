@@ -1,12 +1,12 @@
 import React, {ChangeEvent, FC, useEffect, useState} from "react";
 import {PageProps} from "../../Model/Types";
 import {Header} from "../Header/Header";
-import {LeftSide} from "../Sides/LeftSide";
-import {RightSide} from "../Sides/RightSide";
+import {LeftSide} from "../Sides/LeftSide/LeftSide";
+import {RightSide} from "../Sides/RightSide/RightSide";
 import page from './Page.module.css';
 import {useDispatch, useSelector} from "react-redux";
 import {addContactAction, sendMessageAction} from "../../store/actions/actions";
-import {getMessageAPI, sendMessageAPI} from "../../api/api";
+//import {getMessageAPI, sendMessageAPI} from "../../api/api";
 
 export const Page: FC<PageProps> = ({idInstance, apiTokenInstance}) => {
     const dispatch = useDispatch();
@@ -26,11 +26,11 @@ export const Page: FC<PageProps> = ({idInstance, apiTokenInstance}) => {
     const [userName, setUserName] = useState<String>('');
 
     useEffect(() => {
-        setTimeout(() => {
-            if (idInstance !== '' && apiTokenInstance !== '') {
-                getMessageAPI(idInstance, apiTokenInstance)
-            }
-        }, 300)
+        /*  setTimeout(() => {
+              if (idInstance !== '' && apiTokenInstance !== '') {
+                  getMessageAPI(idInstance, apiTokenInstance)
+              }
+          }, 300)*/
     }, []);
 
     const handleChange1 = (event: ChangeEvent<HTMLInputElement>) => {
@@ -75,7 +75,7 @@ export const Page: FC<PageProps> = ({idInstance, apiTokenInstance}) => {
             console.log('chatId: ', chatId);
             console.log('message: ', message);
             // @ts-ignore
-            sendMessageAPI(idInstance, apiTokenInstance, chatId, message);
+            //   sendMessageAPI(idInstance, apiTokenInstance, chatId, message);
             setMessage('');
         }
     };
@@ -87,7 +87,7 @@ export const Page: FC<PageProps> = ({idInstance, apiTokenInstance}) => {
     return (
         <div>
             <Header listContacts={listContacts} contactId={contactId}/>
-            <div className={page.main_page}>
+            <div className={page.page}>
                 <LeftSide handleChange1={handleChange1} addContact={addContact} openChat={openChat} contact={contact}
                           listContacts={listContacts}/>
                 <RightSide listContacts={listContacts} listMessages={listMessages} contactId={contactId}

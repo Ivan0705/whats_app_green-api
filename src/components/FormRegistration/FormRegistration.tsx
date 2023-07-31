@@ -7,12 +7,12 @@ import {FormRegistrationProps} from "../../Model/Types";
 
 export const FormRegistration: FC<FormRegistrationProps> = ({idInstance, handleChange, apiTokenInstance, error, add}) => {
     return (
-        <div className={form.my_form}>
+        <div className={form["form-registration"]}>
             <div>
                 <div>
                     <div>{error && <IdError/>}
                         <input
-                            className={form.input_form}
+                            className={form["form-registration_input"]}
                             type="text"
                             placeholder="Введите idInstance"
                             name="idInstance"
@@ -21,7 +21,7 @@ export const FormRegistration: FC<FormRegistrationProps> = ({idInstance, handleC
                         />
                         {error && <TokenError/>}
                         <input
-                            className={form.input_form}
+                            className={form["form-registration_input"]}
                             type="text"
                             placeholder="Введите apiTokenInstance"
                             name="apiTokenInstance"
@@ -30,7 +30,7 @@ export const FormRegistration: FC<FormRegistrationProps> = ({idInstance, handleC
                         />
                     </div>
                 </div>
-                <button className={form.button_form} onClick={add}>Подтвердить</button>
+                <button className={form["form-registration_button"]} onClick={add}>Подтвердить</button>
             </div>
         </div>
     )

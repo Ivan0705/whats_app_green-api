@@ -4,24 +4,24 @@
     display: flex;
 }
 
-.profile {
+.contact_profile {
     border-radius: 50%;
     width: 42px;
     height: 42px;
     padding-top: 7px;
 }
 
-.profile_info {
+.contact_profile_info {
     width: 100%;
     text-align: left;
     padding-top: 2.5px;
 }
 
-.profile_header {
+.contact_profile_header {
     display: flex;
 }
 
-.profile_name {
+.contact_profile_name {
     font-size: 1.1em;
     font-family: Verdana, sans-serif;
     margin-left: 7px;

@@ -1,4 +1,4 @@
-.my_form {
+.form-registration {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -8,10 +8,9 @@
     border: gray 1px solid;
     border-radius: 9px;
     background: #dcf8c7;
-
 }
 
-.input_form {
+.form-registration_input {
     margin-top: 10px;
     width: 450px;
     height: 40px;
@@ -20,7 +19,7 @@
     padding-left: 12px;
 }
 
-.button_form {
+.form-registration_button {
     margin-right: 360px;
     margin-top: 10px;
     background-color: #61dafb;
@@ -29,5 +28,4 @@
     border: none;
     height: 45px;
     text-align: center;
-
 }
